@@ -4,7 +4,7 @@ version '1.0-SNAPSHOT'
 apply plugin: 'java'
 
 sourceCompatibility = 1.8
-
+defaultTasks 'stage'
 repositories {
     mavenCentral()
 }
@@ -15,10 +15,9 @@ dependencies {
     compile group: 'com.h2database', name: 'h2', version: '1.4.192'
     compile 'com.sparkjava:spark-template-freemarker:2.3'
     compile group: 'com.heroku.sdk', name: 'heroku-deploy', version: '1.0.3'
-
     compile 'org.slf4j:slf4j-simple:1.7.21'
 }
 
 task stage {
-    dependsOn build
+    dependsOn installDist
 }
