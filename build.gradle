@@ -2,11 +2,15 @@ group 'ProgWeb'
 version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
-apply plugin: 'distribution'
+apply plugin: 'jetty'
+apply plugin: 'application'
 
-
+archivesBaseName = "app"
+mainClassName = 'Main'
+applicationName = 'app'
 sourceCompatibility = 1.8
-defaultTasks 'stage'
+
+defaultTasks = ['stage']
 repositories {
     mavenCentral()
 }
@@ -24,9 +28,4 @@ task stage {
     dependsOn installDist
 }
 
-task copyToLib(type: Copy) {
-    into "$buildDir/lib"
-    from(configurations.compile)
-}
 
-stage.dependsOn(copyToLib)
