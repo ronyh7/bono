@@ -1,3 +1,5 @@
+import org.h2.tools.Server;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -8,8 +10,14 @@ import java.util.ArrayList;
  * Created by Rony on 5/29/2016.
  */
 public class Database {
+    Server server = Server.createTcpServer("-tcpAllowOthers").start();
      private static Connection conexion=null;
      private static Database database=null;
+
+    public Database() throws SQLException {
+    }
+
+
     public static Database getDatabase() throws SQLException{
         if(database==null){
             database= new Database();
