@@ -1,3 +1,4 @@
+
 import org.h2.tools.Server;
 
 import java.sql.Connection;
@@ -10,7 +11,7 @@ import java.util.ArrayList;
  * Created by Rony on 5/29/2016.
  */
 public class Database {
-    Server server = Server.createTcpServer("-tcpAllowOthers").start();
+     private  static Server server=null;
      private static Connection conexion=null;
      private static Database database=null;
 
@@ -19,14 +20,15 @@ public class Database {
 
 
     public static Database getDatabase() throws SQLException{
-        if(database==null){
+        if(database==null || server==null){
             database= new Database();
             try {
+                server = Server.createTcpServer("-tcpAllowOthers").start();
                 Class.forName("org.h2.Driver");
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
             }
-            conexion = DriverManager.getConnection("jdbc:h2:~/practica5", "sa", "1234");
+            conexion = DriverManager.getConnection("jdbc:h2:tcp:~/practica2", "sa", "1234");
         }
         return database;
     }
