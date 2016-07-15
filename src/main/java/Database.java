@@ -33,7 +33,6 @@ public class Database {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-
         }
         return database;
     }
