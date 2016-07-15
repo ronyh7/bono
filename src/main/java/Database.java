@@ -53,6 +53,18 @@ public class Database {
         conexion.createStatement().execute(insert);
     }
 
+    public void create() throws SQLException {
+
+        String insert="CREATE TABLE IF NOT EXISTS ESTUDIANTE(\n" +
+                "  MATRICULA VARCHAR2(8),\n" +
+                "  NOMBRE VARCHAR2(100),\n" +
+                "  APELLIDOS VARCHAR2(100),\n" +
+                "  TELEFONO VARCHAR2(50),\n" +
+                "  PRIMARY KEY (MATRICULA)\n" +
+                ")";
+
+        conexion.createStatement().execute(insert);
+    }
 
     public void delete(String Matricula) throws SQLException {
         String delete="DELETE FROM ESTUDIANTE WHERE MATRICULA="+"'"+Matricula+"'";

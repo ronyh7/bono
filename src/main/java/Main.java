@@ -17,6 +17,7 @@ public class Main {
         port(getHerokuAssignedPort());
         ArrayList<Estudiante> estudiantes;
         Database database=Database.getDatabase();
+        database.create();
         estudiantes=database.select();
         staticFileLocation("/publico");
         Configuration configuration = new Configuration();
