@@ -81,7 +81,7 @@ public class Main {
             database.insert(i);
             Map<String, Object> attributes = new HashMap<>();
             attributes.put("estudiante", estudiante);
-            response.redirect("/home/");
+            response.redirect("/");
 
             //enviando los parametros a la vista.
             return new ModelAndView(attributes, "insertar.ftl");
@@ -96,7 +96,7 @@ public class Main {
             }
             database.delete(matricula);
             Map<String, Object> attributes = new HashMap<>();
-            response.redirect("/home/");
+            response.redirect("/");
             //enviando los parametros a la vista.
             return new ModelAndView(attributes, "insertar.ftl");
         }, freeMarkerEngine);
@@ -118,7 +118,7 @@ public class Main {
             String[] i = {request.queryParams("matricula"), request.queryParams("nombre"),request.queryParams("apellidos"),request.queryParams("telefono")};
             database.update(i);
             Map<String, Object> attributes = new HashMap<>();
-            response.redirect("/home/");
+            response.redirect("/");
             //enviando los parametros a la vista.
             return new ModelAndView(attributes, "insertar.ftl");
         }, freeMarkerEngine);
