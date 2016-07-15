@@ -25,7 +25,7 @@ public class Main {
         FreeMarkerEngine freeMarkerEngine = new FreeMarkerEngine();
         freeMarkerEngine.setConfiguration(configuration);
 
-        get("/home/", (request, response) -> {
+        get("/", (request, response) -> {
             ArrayList<Estudiante> estudiantess;
             estudiantess=database.select();
             Map<String, Object> attributes = new HashMap<>();
