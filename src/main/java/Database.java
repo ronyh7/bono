@@ -51,6 +51,7 @@ public class Database {
                 insert+="'"+params[i]+"'"+");";
         }
         conexion.createStatement().execute(insert);
+        conexion.commit();
     }
 
     public void create() throws SQLException {
@@ -64,11 +65,13 @@ public class Database {
                 ")";
 
         conexion.createStatement().execute(insert);
+        conexion.commit();
     }
 
     public void delete(String Matricula) throws SQLException {
         String delete="DELETE FROM ESTUDIANTE WHERE MATRICULA="+"'"+Matricula+"'";
         conexion.createStatement().execute(delete);
+        conexion.commit();
     }
 
     public void update(String[] estudiante) throws SQLException {
@@ -76,6 +79,7 @@ public class Database {
                         " WHERE MATRICULA = '%s'",
                 estudiante[1], estudiante[2], estudiante[3], estudiante[0]);
         conexion.createStatement().execute(update);
+        conexion.commit();
     }
 
     public ArrayList<Estudiante> select() throws SQLException {
