@@ -26,7 +26,7 @@ public class Database {
                 server = Server.createTcpServer("-tcpAllowOthers").start();
                 Class.forName("org.h2.Driver");
                 conexion = DriverManager.
-                        getConnection("jdbc:h2:tcp:/~/practica2", "sa", "1234");
+                        getConnection("jdbc:h2:~/practica2", "sa", "1234");
                 System.out.println("Connection Established: "
                         + conexion.getMetaData().getDatabaseProductName() + "/" + conexion.getCatalog());
 
