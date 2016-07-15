@@ -23,7 +23,7 @@ public class Database {
         if(database==null || server==null){
             database= new Database();
             try {
-                server = Server.createTcpServer("-tcpAllowOthers").start();
+                server = Server.createTcpServer("jdbc:h2:tcp:~/practica2").start();
                 Class.forName("org.h2.Driver");
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
